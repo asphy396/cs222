@@ -1,0 +1,668 @@
+Script started on 2023-08-29 09:56:14-04:00
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ hostname
+mason.gmu.edu
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ uname -a
+Linux mason.gmu.edu 4.18.0-477.21.1.el8_8.x86_64 #1 SMP Thu Jul 20 08:38:27 EDT 2023 x86_64 x86_64 x86_64 GNU/Linux
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ cd
+]0;malbayra@mason:~[malbayra@mason ~]$ c [Kd cs222/prog1/
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ pwd
+/home/u2/malbayra/cs222/prog1
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ grep in[K[Kin [K[K[K"in" program1_malbayra_s[Kinteger_io.c 
+* CS222 Programm[01;31m[Kin[m[Kg Assignment #1
+* Program allows for the [01;31m[Kin[m[Kput of
+* an [01;31m[Kin[m[Kteger, manipulates it, and
+#[01;31m[Kin[m[Kclude <stdlib.h>
+#[01;31m[Kin[m[Kclude <stdio.h>
+#def[01;31m[Kin[m[Ke MULTIPLIER_CONSTANT 2
+#def[01;31m[Kin[m[Ke SUBTRACTION_CONSTANT 100
+[01;31m[Kin[m[Kt ma[01;31m[Kin[m[K([01;31m[Kin[m[Kt argc, char* argv[]){
+  [01;31m[Kin[m[Kt [01;31m[Kin[m[Kput; // declare variable to store user [01;31m[Kin[m[Kput [01;31m[Kin[m[K
+  if(argc == 2) // check if command l[01;31m[Kin[m[Ke argument was passed
+    [01;31m[Kin[m[Kput = atoi(argv[1]); // store argument as the [01;31m[Kin[m[Kput
+  else { // if not passed, gather [01;31m[Kin[m[Kput from user
+    pr[01;31m[Kin[m[Ktf("Enter [01;31m[Kin[m[Kteger: ");
+    scanf("%d",&[01;31m[Kin[m[Kput);
+  [01;31m[Kin[m[Kput = [01;31m[Kin[m[Kput * MULTIPLIER_CONSTANT - SUBTRACTION_CONSTANT;
+  pr[01;31m[Kin[m[Ktf("Result %d, formatted as %.2f\n",[01;31m[Kin[m[Kput,(double)[01;31m[Kin[m[Kput);
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ ls
+program1_malbayra_integer_io.c  program1_malbayra_script
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ ls -la
+total 4
+drwxr-xr-x. 2 malbayra unde  76 Aug 29 09:56 [0m[38;5;33m.[0m
+drwxr-xr-x. 4 malbayra unde  31 Aug 29 09:55 [38;5;33m..[0m
+-rw-r--r--. 1 malbayra unde 819 Aug 29 09:55 program1_malbayra_integer_io.c
+-rw-r--r--. 1 malbayra unde   0 Aug 29 09:56 program1_malbayra_script
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ df
+Filesystem                    1K-blocks     Used Available Use% Mounted on
+devtmpfs                       16307476        0  16307476   0% /dev
+tmpfs                          16325528        0  16325528   0% /dev/shm
+tmpfs                          16325528   533560  15791968   4% /run
+tmpfs                          16325528        0  16325528   0% /sys/fs/cgroup
+/dev/mapper/OS-root           104806400  5725616  99080784   6% /
+/dev/mapper/DATA-lv_opt        52403200  2036356  50366844   4% /opt
+/dev/mapper/OS-tmp            104806400  5366028  99440372   6% /tmp
+/dev/mapper/DATA-lv_local     209612800 25841728 183771072  13% /usr/local
+/dev/mapper/HOME-lv_u2        536608768 48968868 487639900  10% /home/u2
+/dev/mapper/HOME-lv_u4        536608768 47849180 488759588   9% /home/u4
+/dev/mapper/HOME-lv_u3        536608768 64635796 471972972  13% /home/u3
+/dev/mapper/DATA-lv_sys2      104806400   763760 104042640   1% /sys2
+/dev/mapper/HOME-lv_u1        536608768 53729460 482879308  11% /home/u1
+/dev/sda1                       1038336   345228    693108  34% /boot
+/dev/mapper/DATA-lv_sys1      104806400  1022076 103784324   1% /sys1
+/dev/mapper/HOME-lv_u6        536604676 22017376 514587300   5% /home/u6
+/dev/mapper/OS-var             52403200  1537268  50865932   3% /var
+/dev/mapper/HOME-lv_u5        536608768 55328460 481280308  11% /home/u5
+/dev/mapper/DATA-lv_pub       209608708 16537020 193071688   8% /pub
+/dev/mapper/OS-var_log         55543300  2499816  53043484   5% /var/log
+/dev/mapper/OS-var_log_audit   20961280   218256  20743024   2% /var/log/audit
+/dev/mapper/OS-var_tmp         20961280   428900  20532380   3% /var/tmp
+/dev/mapper/OS-var_spool_mail 104806400 13282864  91523536  13% /var/spool/mail
+jiju41-pr:/var/www/html       293454848 43244544 250210304  15% /nfs/jiju41
+tmpfs                           3265104        0   3265104   0% /run/user/20099
+tmpfs                           3265104        0   3265104   0% /run/user/125962
+tmpfs                           3265104        0   3265104   0% /run/user/8890
+tmpfs                           3265104        0   3265104   0% /run/user/2019
+tmpfs                           3265104        0   3265104   0% /run/user/592461
+tmpfs                           3265104        0   3265104   0% /run/user/578133
+tmpfs                           3265104        0   3265104   0% /run/user/603266
+tmpfs                           3265104        0   3265104   0% /run/user/614822
+tmpfs                           3265104        0   3265104   0% /run/user/647741
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0 251148 15608 ?        Ss   Aug13   8:56 /usr/lib/systemd/syste
+root           2  0.0  0.0      0     0 ?        S    Aug13   0:07 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   Aug13   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   Aug13   0:00 [rcu_par_gp]
+root           5  0.0  0.0      0     0 ?        I<   Aug13   0:00 [slub_flushwq]
+root           7  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/0:0H-events_h
+root           9  0.0  0.0      0     0 ?        I    Aug13   0:00 [kworker/u32:0-scsi_tm
+root          11  0.0  0.0      0     0 ?        I<   Aug13   0:00 [mm_percpu_wq]
+root          12  0.0  0.0      0     0 ?        S    Aug13   0:00 [rcu_tasks_rude_]
+root          13  0.0  0.0      0     0 ?        S    Aug13   0:00 [rcu_tasks_trace]
+root          14  0.0  0.0      0     0 ?        S    Aug13   0:01 [ksoftirqd/0]
+root          15  0.0  0.0      0     0 ?        I    Aug13   6:53 [rcu_sched]
+root          16  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/0]
+root          17  0.0  0.0      0     0 ?        S    Aug13   0:01 [watchdog/0]
+root          18  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/0]
+root          19  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/1]
+root          20  0.0  0.0      0     0 ?        S    Aug13   0:00 [watchdog/1]
+root          21  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/1]
+root          22  0.0  0.0      0     0 ?        S    Aug13   0:01 [ksoftirqd/1]
+root          24  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/1:0H-events_h
+root          25  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/2]
+root          26  0.0  0.0      0     0 ?        S    Aug13   0:00 [watchdog/2]
+root          27  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/2]
+root          28  0.0  0.0      0     0 ?        S    Aug13   0:02 [ksoftirqd/2]
+root          30  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/2:0H-events_h
+root          31  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/3]
+root          32  0.0  0.0      0     0 ?        S    Aug13   0:00 [watchdog/3]
+root          33  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/3]
+root          34  0.0  0.0      0     0 ?        S    Aug13   0:01 [ksoftirqd/3]
+root          36  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/3:0H-events_h
+root          37  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/4]
+root          38  0.0  0.0      0     0 ?        S    Aug13   0:00 [watchdog/4]
+root          39  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/4]
+root          40  0.0  0.0      0     0 ?        S    Aug13   0:01 [ksoftirqd/4]
+root          42  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/4:0H-events_h
+root          43  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/5]
+root          44  0.0  0.0      0     0 ?        S    Aug13   0:00 [watchdog/5]
+root          45  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/5]
+root          46  0.0  0.0      0     0 ?        S    Aug13   0:01 [ksoftirqd/5]
+root          48  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/5:0H-events_h
+root          49  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/6]
+root          50  0.0  0.0      0     0 ?        S    Aug13   0:01 [watchdog/6]
+root          51  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/6]
+root          52  0.0  0.0      0     0 ?        S    Aug13   0:04 [ksoftirqd/6]
+root          54  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/6:0H-events_h
+root          56  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/7]
+root          57  0.0  0.0      0     0 ?        S    Aug13   0:00 [watchdog/7]
+root          58  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/7]
+root          59  0.0  0.0      0     0 ?        S    Aug13   0:03 [ksoftirqd/7]
+root          61  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/7:0H-events_h
+root          62  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/8]
+root          63  0.0  0.0      0     0 ?        S    Aug13   0:01 [watchdog/8]
+root          64  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/8]
+root          65  0.0  0.0      0     0 ?        S    Aug13   0:02 [ksoftirqd/8]
+root          67  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/8:0H-events_h
+root          68  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/9]
+root          69  0.0  0.0      0     0 ?        S    Aug13   0:01 [watchdog/9]
+root          70  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/9]
+root          71  0.0  0.0      0     0 ?        S    Aug13   0:02 [ksoftirqd/9]
+root          73  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/9:0H-events_h
+root          74  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/10]
+root          75  0.0  0.0      0     0 ?        S    Aug13   0:01 [watchdog/10]
+root          76  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/10]
+root          77  0.0  0.0      0     0 ?        S    Aug13   0:02 [ksoftirqd/10]
+root          79  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/10:0H-events_
+root          80  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/11]
+root          81  0.0  0.0      0     0 ?        S    Aug13   0:01 [watchdog/11]
+root          82  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/11]
+root          83  0.0  0.0      0     0 ?        S    Aug13   0:02 [ksoftirqd/11]
+root          85  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/11:0H-events_
+root          86  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/12]
+root          87  0.0  0.0      0     0 ?        S    Aug13   0:01 [watchdog/12]
+root          88  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/12]
+root          89  0.0  0.0      0     0 ?        S    Aug13   0:05 [ksoftirqd/12]
+root          91  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/12:0H-events_
+root          93  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/13]
+root          94  0.0  0.0      0     0 ?        S    Aug13   0:00 [watchdog/13]
+root          95  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/13]
+root          96  0.0  0.0      0     0 ?        S    Aug13   0:04 [ksoftirqd/13]
+root          98  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/13:0H-events_
+root          99  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/14]
+root         100  0.0  0.0      0     0 ?        S    Aug13   0:01 [watchdog/14]
+root         101  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/14]
+root         102  0.0  0.0      0     0 ?        S    Aug13   0:04 [ksoftirqd/14]
+root         104  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/14:0H-events_
+root         105  0.0  0.0      0     0 ?        S    Aug13   0:00 [cpuhp/15]
+root         106  0.0  0.0      0     0 ?        S    Aug13   0:01 [watchdog/15]
+root         107  0.0  0.0      0     0 ?        S    Aug13   0:00 [migration/15]
+root         108  0.0  0.0      0     0 ?        S    Aug13   0:03 [ksoftirqd/15]
+root         110  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kworker/15:0H-events_
+root         127  0.0  0.0      0     0 ?        S    Aug13   0:00 [kdevtmpfs]
+root         128  0.0  0.0      0     0 ?        I<   Aug13   0:00 [netns]
+root         129  0.0  0.0      0     0 ?        S    Aug13   0:04 [kauditd]
+root         131  0.0  0.0      0     0 ?        S    Aug13   0:02 [khungtaskd]
+root         132  0.0  0.0      0     0 ?        S    Aug13   0:00 [oom_reaper]
+root         133  0.0  0.0      0     0 ?        I<   Aug13   0:00 [writeback]
+root         134  0.0  0.0      0     0 ?        S    Aug13   0:00 [kcompactd0]
+root         135  0.0  0.0      0     0 ?        S    Aug13   0:01 [kcompactd1]
+root         136  0.0  0.0      0     0 ?        S    Aug13   0:00 [kcompactd2]
+root         137  0.0  0.0      0     0 ?        SN   Aug13   0:00 [ksmd]
+root         138  0.0  0.0      0     0 ?        SN   Aug13   0:17 [khugepaged]
+root         139  0.0  0.0      0     0 ?        I<   Aug13   0:00 [crypto]
+root         140  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kintegrityd]
+root         141  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kblockd]
+root         142  0.0  0.0      0     0 ?        I<   Aug13   0:00 [blkcg_punt_bio]
+root         143  0.0  0.0      0     0 ?        I<   Aug13   0:00 [tpm_dev_wq]
+root         144  0.0  0.0      0     0 ?        I<   Aug13   0:00 [md]
+root         145  0.0  0.0      0     0 ?        I<   Aug13   0:00 [edac-poller]
+root         146  0.0  0.0      0     0 ?        S    Aug13   0:00 [watchdogd]
+root         148  0.0  0.0      0     0 ?        I<   Aug13   0:02 [kworker/1:1H-xfs-log/
+root         165  0.0  0.0      0     0 ?        S    Aug13   0:00 [kswapd0]
+root         166  0.0  0.0      0     0 ?        S    Aug13   0:20 [kswapd1]
+root         167  0.0  0.0      0     0 ?        S    Aug13   0:01 [kswapd2]
+root         230  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kthrotld]
+root         231  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/24-pciehp]
+root         232  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/25-pciehp]
+root         233  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/26-pciehp]
+root         234  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/27-pciehp]
+root         235  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/28-pciehp]
+root         236  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/29-pciehp]
+root         237  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/30-pciehp]
+root         238  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/31-pciehp]
+root         239  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/32-pciehp]
+root         240  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/33-pciehp]
+root         241  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/34-pciehp]
+root         242  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/35-pciehp]
+root         243  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/36-pciehp]
+root         244  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/37-pciehp]
+root         245  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/38-pciehp]
+root         246  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/39-pciehp]
+root         247  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/40-pciehp]
+root         248  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/41-pciehp]
+root         249  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/42-pciehp]
+root         250  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/43-pciehp]
+root         251  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/44-pciehp]
+root         252  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/45-pciehp]
+root         253  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/46-pciehp]
+root         254  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/47-pciehp]
+root         255  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/48-pciehp]
+root         256  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/49-pciehp]
+root         257  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/50-pciehp]
+root         258  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/51-pciehp]
+root         259  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/52-pciehp]
+root         260  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/53-pciehp]
+root         261  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/54-pciehp]
+root         262  0.0  0.0      0     0 ?        S    Aug13   0:00 [irq/55-pciehp]
+root         263  0.0  0.0      0     0 ?        I<   Aug13   0:00 [acpi_thermal_pm]
+root         264  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kmpath_rdacd]
+root         265  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kaluad]
+root         266  0.0  0.0      0     0 ?        I<   Aug13   0:00 [ipv6_addrconf]
+root         267  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kstrp]
+root         313  0.0  0.0      0     0 ?        I<   Aug13   0:00 [zswap-shrink]
+root         333  0.0  0.0      0     0 ?        I<   Aug13   0:01 [kworker/4:1H-xfs-log/
+root         361  0.0  0.0      0     0 ?        I<   Aug13   0:03 [kworker/2:1H-kblockd]
+root         363  0.0  0.0      0     0 ?        I<   Aug13   0:02 [kworker/5:1H-xfs-log/
+root         365  0.0  0.0      0     0 ?        I<   Aug13   0:02 [kworker/0:1H-xfs-log/
+root         367  0.0  0.0      0     0 ?        I<   Aug13   0:01 [kworker/3:1H-kblockd]
+root         372  0.0  0.0      0     0 ?        I<   Aug13   0:01 [kworker/9:1H-kblockd]
+root         389  0.0  0.0      0     0 ?        I<   Aug13   0:01 [kworker/10:1H-kblockd
+root         395  0.0  0.0      0     0 ?        I<   Aug13   0:02 [kworker/7:1H-kblockd]
+root         398  0.0  0.0      0     0 ?        I<   Aug13   0:08 [kworker/6:1H-kblockd]
+root         399  0.0  0.0      0     0 ?        I<   Aug13   0:02 [kworker/14:1H-kblockd
+root         400  0.0  0.0      0     0 ?        I<   Aug13   0:02 [kworker/13:1H-kblockd
+root         405  0.0  0.0      0     0 ?        I<   Aug13   0:03 [kworker/15:1H-kblockd
+root         409  0.0  0.0      0     0 ?        I<   Aug13   0:02 [kworker/11:1H-kblockd
+root         412  0.0  0.0      0     0 ?        I<   Aug13   0:01 [kworker/8:1H-kblockd]
+root         508  0.0  0.0      0     0 ?        I<   Aug13   0:02 [kworker/12:1H-kblockd
+root         616  0.0  0.0      0     0 ?        I<   Aug13   0:00 [ata_sff]
+root         618  0.0  0.0      0     0 ?        S    Aug13   0:00 [scsi_eh_0]
+root         619  0.0  0.0      0     0 ?        I<   Aug13   0:00 [scsi_tmf_0]
+root         620  0.0  0.0      0     0 ?        I<   Aug13   0:00 [mpt_poll_0]
+root         621  0.0  0.0      0     0 ?        I<   Aug13   0:00 [mpt/0]
+root         622  0.0  0.0      0     0 ?        S    Aug13   0:00 [scsi_eh_1]
+root         623  0.0  0.0      0     0 ?        I<   Aug13   0:00 [scsi_tmf_1]
+root         630  0.0  0.0      0     0 ?        S    Aug13   0:20 [irq/16-vmwgfx]
+root         632  0.0  0.0      0     0 ?        S    Aug13   0:00 [card0-crtc0]
+root         633  0.0  0.0      0     0 ?        S    Aug13   0:00 [card0-crtc1]
+root         634  0.0  0.0      0     0 ?        S    Aug13   0:00 [card0-crtc2]
+root         635  0.0  0.0      0     0 ?        S    Aug13   0:00 [card0-crtc3]
+root         636  0.0  0.0      0     0 ?        S    Aug13   0:00 [card0-crtc4]
+root         637  0.0  0.0      0     0 ?        S    Aug13   0:00 [card0-crtc5]
+root         638  0.0  0.0      0     0 ?        S    Aug13   0:00 [card0-crtc6]
+root         639  0.0  0.0      0     0 ?        S    Aug13   0:00 [card0-crtc7]
+root         642  0.0  0.0      0     0 ?        S    Aug13   0:00 [scsi_eh_2]
+root         643  0.0  0.0      0     0 ?        I<   Aug13   0:00 [scsi_tmf_2]
+root         659  0.0  0.0      0     0 ?        I    Aug13   0:12 [kworker/u32:1-netns]
+root         751  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:0]
+root         761  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:1]
+root         787  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfsalloc]
+root         788  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs_mru_cache]
+root         789  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-0]
+root         790  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-0]
+root         791  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-0]
+root         792  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root         793  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-0]
+root         795  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-0]
+root         796  0.0  0.0      0     0 ?        S    Aug13   0:02 [xfsaild/dm-0]
+root         910  0.0  0.6 349948 213016 ?       Ss   Aug13   2:22 /usr/lib/systemd/syste
+root         947  0.0  0.0      0     0 ?        I<   Aug13   0:00 [rpciod]
+root         948  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xprtiod]
+root         954  0.0  0.0 101172 12560 ?        Ss   Aug13   0:14 /usr/lib/systemd/syste
+root        1219  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:2]
+root        1221  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:3]
+root        1223  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:4]
+root        1225  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:5]
+root        1227  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:6]
+root        1228  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:7]
+root        1237  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:8]
+root        1238  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:9]
+root        1241  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:10]
+root        1242  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:11]
+root        1245  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:12]
+root        1252  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:13]
+root        1253  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:14]
+root        1255  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:15]
+root        1260  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:16]
+root        1261  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:17]
+root        1263  0.0  0.0      0     0 ?        I<   Aug13   0:00 [kdmflush/253:18]
+root        1316  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/sda1]
+root        1317  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-10]
+root        1318  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/sda1]
+root        1319  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-10]
+root        1320  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-10]
+root        1321  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/sda1]
+root        1323  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1324  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/sda]
+root        1325  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-10]
+root        1326  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/sda1]
+root        1327  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-16]
+root        1328  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-16]
+root        1329  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-16]
+root        1331  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1332  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-16]
+root        1334  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-12]
+root        1336  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-12]
+root        1338  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-12]
+root        1339  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/sda1]
+root        1340  0.0  0.0      0     0 ?        S    Aug13   0:02 [xfsaild/sda1]
+root        1341  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1342  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-12]
+root        1343  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-10]
+root        1344  0.0  0.0      0     0 ?        S    Aug13   1:16 [xfsaild/dm-10]
+root        1345  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-16]
+root        1346  0.0  0.0      0     0 ?        S    Aug13   0:24 [xfsaild/dm-16]
+root        1347  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-14]
+root        1349  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-14]
+root        1350  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-14]
+root        1351  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1352  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-14]
+root        1353  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-15]
+root        1354  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-15]
+root        1355  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-15]
+root        1357  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-12]
+root        1358  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1359  0.0  0.0      0     0 ?        S    Aug13   0:00 [xfsaild/dm-12]
+root        1360  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-15]
+root        1361  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-14]
+root        1362  0.0  0.0      0     0 ?        S    Aug13   0:27 [xfsaild/dm-14]
+root        1364  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-17]
+root        1366  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-17]
+root        1367  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-17]
+root        1368  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1369  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-17]
+root        1370  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-15]
+root        1371  0.0  0.0      0     0 ?        S    Aug13   0:30 [xfsaild/dm-15]
+root        1372  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-8]
+root        1373  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-8]
+root        1374  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-8]
+root        1375  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1376  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-8]
+root        1380  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-17]
+root        1381  0.0  0.0      0     0 ?        S    Aug13   0:24 [xfsaild/dm-17]
+root        1382  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-8]
+root        1383  0.0  0.0      0     0 ?        S    Aug13   0:00 [xfsaild/dm-8]
+root        1384  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-9]
+root        1385  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-9]
+root        1386  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-9]
+root        1388  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1389  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-9]
+root        1390  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-2]
+root        1391  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-2]
+root        1393  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-2]
+root        1395  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1396  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-2]
+root        1397  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-9]
+root        1399  0.0  0.0      0     0 ?        S    Aug13   0:00 [xfsaild/dm-9]
+root        1400  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-18]
+root        1401  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-18]
+root        1402  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-18]
+root        1403  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1404  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-18]
+root        1406  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-13]
+root        1407  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-2]
+root        1408  0.0  0.0      0     0 ?        S    Aug13   0:40 [xfsaild/dm-2]
+root        1410  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-13]
+root        1411  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-13]
+root        1412  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1413  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-18]
+root        1414  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-13]
+root        1415  0.0  0.0      0     0 ?        S    Aug13   0:05 [xfsaild/dm-18]
+root        1418  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-13]
+root        1419  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-11]
+root        1420  0.0  0.0      0     0 ?        S    Aug13   0:22 [xfsaild/dm-13]
+root        1421  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-11]
+root        1422  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-11]
+root        1423  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1424  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-11]
+root        1425  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-3]
+root        1426  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-3]
+root        1427  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-3]
+root        1428  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1430  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-3]
+root        1432  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-3]
+root        1433  0.0  0.0      0     0 ?        S    Aug13   1:28 [xfsaild/dm-3]
+root        1434  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-11]
+root        1435  0.0  0.0      0     0 ?        S    Aug13   0:03 [xfsaild/dm-11]
+root        1455  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-5]
+root        1456  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-5]
+root        1457  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-5]
+root        1458  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1459  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-5]
+root        1461  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-5]
+root        1463  0.0  0.0      0     0 ?        S    Aug13   1:30 [xfsaild/dm-5]
+root        1464  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-7]
+root        1465  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-7]
+root        1466  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-7]
+root        1467  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1468  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-7]
+root        1470  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-4]
+root        1471  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-4]
+root        1472  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-4]
+root        1473  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1474  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-4]
+root        1476  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-7]
+root        1477  0.0  0.0      0     0 ?        S    Aug13   0:01 [xfsaild/dm-7]
+root        1478  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-4]
+root        1479  0.0  0.0      0     0 ?        S    Aug13   0:00 [xfsaild/dm-4]
+root        1483  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-buf/dm-6]
+root        1484  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-conv/dm-6]
+root        1485  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-cil/dm-6]
+root        1486  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-reclaim/dm-]
+root        1487  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-gc/dm-6]
+root        1489  0.0  0.0      0     0 ?        I<   Aug13   0:00 [xfs-log/dm-6]
+root        1490  0.0  0.0      0     0 ?        S    Aug13   0:44 [xfsaild/dm-6]
+root        1502  0.0  0.0   8744   112 ?        Ss   Aug13   0:00 /opt/CrowdStrike/falco
+root        1503  9.0  0.1 2003508 47340 ?       Sl   Aug13 2103:51 falcon-sensor
+rpc         1530  0.0  0.0  67364  5536 ?        Ss   Aug13   0:01 /usr/bin/rpcbind -w -f
+root        1549  0.0  0.0  57108  2688 ?        S<sl Aug13   3:07 /sbin/auditd
+dbus        1571  0.0  0.0  77408  7484 ?        Ssl  Aug13   4:18 /usr/bin/dbus-daemon -
+root        1574  0.0  0.0   6656  2024 ?        Ss   Aug13   0:00 /usr/sbin/mcelog --ign
+root        1575  0.0  0.0 125068  5468 ?        Ssl  Aug13   1:26 /usr/sbin/irqbalance -
+root        1577  0.0  0.0  50380  5696 ?        Ss   Aug13   0:00 /usr/sbin/smartd -n -q
+root        1580  0.0  0.0  75100 10864 ?        Ss   Aug13   0:00 /usr/bin/VGAuthService
+root        1581  0.0  0.0 363600 12412 ?        Ssl  Aug13  20:24 /usr/bin/vmtoolsd
+chrony      1585  0.0  0.0 140080  4840 ?        S    Aug13   0:10 /usr/sbin/chronyd
+daemon      1586  0.0  0.0 380824  9164 ?        Ssl  Aug13   1:43 /usr/sbin/rngd -f --fi
+root        1587  0.0  0.0 246248 12308 ?        Ss   Aug13   0:03 /usr/sbin/sssd -i --lo
+root        1590  0.0  0.0 374924 14304 ?        Ssl  Aug13   0:00 /usr/sbin/abrtd -d -s
+libstor+    1592  0.0  0.0   8616  1828 ?        Ss   Aug13   0:01 /usr/bin/lsmd -d
+adder       1660  0.0  0.6 4894528 215996 ?      Sl   Aug13  15:27 /usr/bin/java -classpa
+root        1715  0.0  0.2 261484 67548 ?        S    Aug13  22:46 /usr/libexec/sssd/sssd
+root        1716  0.0  0.1 234068 32972 ?        S    Aug13   1:09 /usr/libexec/sssd/sssd
+root        1729  0.0  0.0  83568 10012 ?        Ss   Aug13   4:05 /usr/lib/systemd/syste
+root        3224  0.0  0.0 248348 14136 ?        Ss   Aug13   0:08 /usr/bin/abrt-dump-jou
+root        3225  0.0  0.0 298000 14492 ?        Ss   Aug13   0:07 /usr/bin/abrt-dump-jou
+root        4462  0.0  0.0  22184  1740 ?        Ss   Aug13   0:00 /opt/nessus_agent/sbin
+root        4463  0.1  0.1 493816 39404 ?        Ssl  Aug13  40:06 /usr/libexec/platform-
+root        4465  0.0  0.0  76652  6676 ?        Ss   Aug13   0:06 /usr/sbin/sshd -D -oCi
+root        4470  0.0  0.1 459824 36288 ?        Ssl  Aug13   1:50 /usr/sbin/rsyslogd -n
+root        4475  0.0  0.0  27120  1388 ?        Ss   Aug13   0:00 /usr/sbin/vsftpd /etc/
+root        4477  0.0  0.0  41796  2064 ?        Ss   Aug13   0:00 /usr/bin/rhsmcertd
+root        4484  0.0  0.0  26768  4612 ?        Ss   Aug13   0:02 /usr/sbin/dovecot -F
+root        4490  0.0  0.0 171644  5396 ?        Ssl  Aug13   0:00 /usr/sbin/gssproxy -D
+splunk      4509  0.1  0.7 459592 249336 ?       Ssl  Aug13  45:31 splunkd --under-system
+root        4519  0.0  0.0 164624  8080 ?        Ssl  Aug13   0:00 /usr/sbin/rpc.gssd
+dovecot     4535  0.0  0.0  22364  2396 ?        S    Aug13   0:00 dovecot/anvil
+root        4536  0.0  0.0  22500  4164 ?        S    Aug13   0:01 dovecot/log
+root        4540  0.0  0.0  29924  6180 ?        S    Aug13   0:03 dovecot/config
+root        4542  0.0  0.0      0     0 ?        I<   Aug13   0:00 [nfsiod]
+root        4554  0.0  0.0      0     0 ?        S    Aug13   0:00 [NFSv4 callback]
+polkitd     4792  0.0  0.0 2026800 25804 ?       Ssl  Aug13   0:52 /usr/lib/polkit-1/polk
+root        4902  0.0  0.0 107340  5904 ?        Ss   Aug13   0:31 /usr/libexec/postfix/m
+root        4915  0.0  0.0 267396 14880 ?        Ss   Aug13   1:06 /usr/sbin/httpd -DFORE
+postfix     4921  0.0  0.0 134984 10192 ?        S    Aug13   0:15 qmgr -l -t unix -u
+root        4923  0.0  0.0  26132  2328 ?        Ss   Aug13   0:00 /usr/sbin/atd -f
+root        4925  0.0  0.0  25860  3188 ?        Ss   Aug13   0:14 /usr/sbin/crond -n
+root        4944  0.0  0.0   6916  1572 tty1     Ss+  Aug13   0:00 /sbin/agetty -o -p -- 
+postfix     4973  0.0  0.0 139040 11480 ?        S    Aug13   0:04 tlsmgr -l -t unix -u
+root        5581  0.1  3.1 4577680 1033044 ?     Ssl  Aug13  41:03 /usr/bin/rubrik/backup
+splunk      6203  0.0  0.0 131844 16112 ?        Ss   Aug13   0:00 [splunkd pid=4509] spl
+root        8399  0.0  0.0 177028  6256 ?        Ssl  Aug13   0:04 /usr/bin/rubrik/bootst
+dovecot    11313  0.0  0.0  28228  4352 ?        S    Aug13   0:01 dovecot/stats
+root      167347  0.0  0.0  23208  4156 ?        S    Aug17   0:00 nessusd -q
+root      167348  0.2  1.1 899104 386972 ?       Sl   Aug17  40:10 /opt/nessus_agent/sbin
+root      264370  0.0  0.0      0     0 ?        Z    Aug19   0:00 [sh] <defunct>
+root      932675  0.0  0.0 150404 10152 ?        Ss   Aug23   0:00 sshd: rganesan [priv]
+rganesan  932682  0.0  0.0  89940 10224 ?        Ss   Aug23   0:34 /usr/lib/systemd/syste
+rganesan  932686  0.0  0.0 311452  6120 ?        S    Aug23   0:00 (sd-pam)
+rganesan  932698  0.0  0.0 150540  5676 ?        S    Aug23   0:01 sshd: rganesan@notty
+rganesan  932699  0.0  0.0  29368  4688 ?        Ss   Aug23   0:00 /usr/libexec/openssh/s
+root      932766  0.0  0.0 150404 10664 ?        Ss   Aug23   0:00 sshd: rganesan [priv]
+rganesan  932770  0.0  0.0 150540  6260 ?        S    Aug23   0:01 sshd: rganesan@notty
+rganesan  932771  0.0  0.0  29440  4948 ?        Ss   Aug23   0:00 /usr/libexec/openssh/s
+korf      947208  0.0  0.0  89932 10300 ?        Ss   Aug23   0:33 /usr/lib/systemd/syste
+korf      947213  0.0  0.0 311452  6328 ?        S    Aug23   0:00 (sd-pam)
+root      947416  0.0  0.0 150404 11116 ?        Ss   Aug23   0:00 sshd: korf [priv]
+korf      947421  0.0  0.0 150404  6256 ?        S    Aug23   0:01 sshd: korf@pts/6
+korf      947422  0.0  0.0  16416  5076 pts/6    Ss+  Aug23   0:00 -bash
+root     1074768  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-errman]
+root     1074769  0.0  0.0      0     0 ?        S    Aug25   4:33 [kcs-evdefer/0]
+root     1074770  0.0  0.0      0     0 ?        S    Aug25   4:34 [kcs-evdefer/1]
+root     1074771  0.0  0.0      0     0 ?        S    Aug25   4:34 [kcs-evdefer/2]
+root     1074772  0.0  0.0      0     0 ?        S    Aug25   4:33 [kcs-evdefer/3]
+root     1074773  0.0  0.0      0     0 ?        S    Aug25   4:34 [kcs-evdefer/4]
+root     1074774  0.0  0.0      0     0 ?        S    Aug25   4:33 [kcs-evdefer/5]
+root     1074775  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-evreap]
+root     1074776  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-evnet]
+root     1074777  0.0  0.0      0     0 ?        S    Aug25   0:29 [kcs-term]
+root     1074778  0.0  0.0      0     0 ?        S    Aug25   1:49 [kcs-created]
+root     1074779  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-wqtimer]
+root     1074780  0.0  0.0      0     0 ?        S    Aug25   0:12 [kcs-cormgr]
+root     1074781  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-telem]
+root     1074782  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-file/0]
+root     1074783  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-file/1]
+root     1074784  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-ooa/0]
+root     1074785  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-ooa/1]
+root     1074786  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-ooa/2]
+root     1074787  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-ooa/3]
+root     1074788  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-ooadef/0]
+root     1074789  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-ooadef/1]
+root     1074790  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-rundown]
+root     1074926  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-workqueue]
+root     1098214  0.0  0.0      0     0 ?        S    Aug25   0:00 [kcs-workqueue]
+root     1133871  0.0  0.0      0     0 ?        Z    Aug26   0:00 [sh] <defunct>
+root     1627010  0.1  0.0 258228 13904 ?        S    Aug26   4:29 /usr/libexec/sssd/sssd
+apache   1658979  0.0  0.0 282560  9152 ?        S    Aug27   0:00 /usr/sbin/httpd -DFORE
+apache   1658982  0.0  0.0 283936  9380 ?        S    Aug27   0:01 /usr/sbin/httpd -DFORE
+apache   1658983  0.0  0.1 2796284 32920 ?       Sl   Aug27   2:40 /usr/sbin/httpd -DFORE
+apache   1658985  0.1  0.1 2599612 34628 ?       Sl   Aug27   3:57 /usr/sbin/httpd -DFORE
+apache   1658986  0.1  0.1 2599612 35080 ?       Sl   Aug27   5:13 /usr/sbin/httpd -DFORE
+apache   1659201  0.2  0.1 2599612 37556 ?       Sl   Aug27   7:52 /usr/sbin/httpd -DFORE
+apache   1777062  0.2  0.0 2599612 32268 ?       Sl   Aug28   1:51 /usr/sbin/httpd -DFORE
+root     1779556  0.0  0.0 146056 10284 ?        Ss   Aug28   0:00 sshd: sitescpe [priv]
+sitescpe 1779563  0.0  0.0  89860  9952 ?        Ss   Aug28   0:03 /usr/lib/systemd/syste
+sitescpe 1779565  0.0  0.0 320000  6892 ?        S    Aug28   0:00 (sd-pam)
+sitescpe 1779577  0.0  0.0 146056  6424 ?        S    Aug28   0:00 sshd: sitescpe@pts/0
+sitescpe 1779578  0.0  0.0  16416  5088 pts/0    Ss+  Aug28   0:00 -bash
+root     1799787  0.0  0.0      0     0 ?        I    05:46   0:00 [kworker/u33:1-events_
+root     1801585  0.0  0.0 152472 11348 ?        Ss   05:57   0:00 sshd: rjackson [priv]
+rjackson 1801591  0.0  0.0  89816  9728 ?        Ss   05:57   0:01 /usr/lib/systemd/syste
+rjackson 1801594  0.0  0.0 320000  6892 ?        S    05:57   0:00 (sd-pam)
+rjackson 1801607  0.0  0.0 152472  6196 ?        S    05:57   0:01 sshd: rjackson@pts/1
+rjackson 1801608  0.0  0.0  16436  5064 pts/1    Ss   05:57   0:00 -bash
+rjackson 1801646  0.0  0.0  38756 11188 pts/1    S+   05:59   0:02 vim log
+root     1805502  0.0  0.0      0     0 ?        I    07:45   0:00 [kworker/u33:2-events_
+root     1805662  0.0  0.0      0     0 ?        I    07:49   0:00 [kworker/u35:0-xfs-cil
+root     1806185  0.0  0.0      0     0 ?        I    08:00   0:00 [kworker/15:10-xfs-syn
+root     1806367  0.0  0.0      0     0 ?        R    08:04   0:00 [kworker/u34:0+events_
+root     1806707  0.0  0.0      0     0 ?        I    08:09   0:00 [kworker/15:6-events_f
+root     1806806  0.0  0.0      0     0 ?        I    08:10   0:00 [kworker/u34:3-events_
+root     1807680  0.0  0.0      0     0 ?        I    08:21   0:00 [kworker/u33:3-events_
+root     1810053  0.0  0.0      0     0 ?        I    09:00   0:00 [kworker/0:1-events]
+root     1810114  0.0  0.0      0     0 ?        I    09:02   0:00 [kworker/u35:1-flush-8
+root     1810154  0.0  0.0      0     0 ?        I    09:03   0:00 [kworker/6:3-events]
+root     1810231  0.0  0.0      0     0 ?        I    09:05   0:00 [kworker/15:2-xfs-sync
+root     1810429  0.0  0.0      0     0 ?        I    09:08   0:00 [kworker/u35:2-flush-8
+root     1810522  0.0  0.0      0     0 ?        I    09:10   0:01 [kworker/8:2-cgroup_de
+root     1810630  0.0  0.0      0     0 ?        I    09:15   0:00 [kworker/7:2-cgroup_pi
+root     1810936  0.0  0.0      0     0 ?        I    09:21   0:00 [kworker/u34:2-events_
+root     1811029  0.0  0.0      0     0 ?        I    09:24   0:00 [kworker/11:0-cgroup_p
+root     1811063  0.0  0.0      0     0 ?        I    09:25   0:00 [kworker/10:1-cgroup_d
+postfix  1811131  0.0  0.0 134676  9956 ?        S    09:25   0:00 pickup -l -t unix -u
+root     1811171  0.0  0.0      0     0 ?        I    09:26   0:00 [kworker/12:1-cgroup_d
+root     1811179  0.0  0.0      0     0 ?        I    09:26   0:00 [kworker/14:2-events]
+root     1811263  0.0  0.0 146056 10116 ?        Ss   09:29   0:00 sshd: wwatson9 [priv]
+wwatson9 1811278  0.0  0.0  89840 10052 ?        Ss   09:30   0:00 /usr/lib/systemd/syste
+root     1811312  0.0  0.0      0     0 ?        I    09:30   0:00 [kworker/12:2-mm_percp
+wwatson9 1811357  0.0  0.0 320000  6892 ?        S    09:30   0:00 (sd-pam)
+wwatson9 1811384  0.0  0.0 146056  5604 ?        S    09:30   0:00 sshd: wwatson9@notty
+wwatson9 1811385  0.0  0.0  29368  4780 ?        Ss   09:30   0:00 /usr/libexec/openssh/s
+root     1811515  0.0  0.0      0     0 ?        I    09:34   0:00 [kworker/5:0-mm_percpu
+root     1811516  0.0  0.0      0     0 ?        I    09:34   0:00 [kworker/8:1-cgroup_pi
+root     1811519  0.0  0.0      0     0 ?        I    09:34   0:00 [kworker/2:3-cgroup_pi
+root     1811539  0.0  0.0      0     0 ?        I    09:35   0:00 [kworker/10:3-cgroup_p
+root     1811563  0.0  0.0      0     0 ?        I    09:35   0:00 [kworker/1:2-events]
+root     1811739  0.0  0.0      0     0 ?        I    09:40   0:00 [kworker/0:0-events]
+root     1811742  0.0  0.0      0     0 ?        I    09:40   0:00 [kworker/4:0-mm_percpu
+root     1811747  0.0  0.0      0     0 ?        I    09:40   0:00 [kworker/9:3-cgroup_pi
+root     1811783  0.0  0.0      0     0 ?        I    09:40   0:00 [kworker/15:3-xfs-sync
+root     1811935  0.0  0.0      0     0 ?        I    09:43   0:00 [kworker/15:4-xfs-sync
+root     1811947  0.0  0.0      0     0 ?        I    09:44   0:00 [kworker/2:1-ata_sff]
+root     1811960  0.0  0.0      0     0 ?        I    09:44   0:00 [kworker/15:5-xfs-sync
+root     1812055  0.0  0.0      0     0 ?        I    09:45   0:00 [kworker/5:1-mm_percpu
+root     1812059  0.0  0.0      0     0 ?        I    09:45   0:00 [kworker/6:0-cgroup_pi
+root     1812122  0.0  0.0      0     0 ?        I    09:46   0:00 [kworker/14:1-mpt_poll
+root     1812123  0.0  0.0      0     0 ?        S    09:46   0:00 [kcs-workqueue]
+root     1812124  0.0  0.0      0     0 ?        S    09:46   0:00 [kcs-workqueue]
+root     1812174  0.0  0.0      0     0 ?        I    09:48   0:00 [kworker/12:3-mm_percp
+root     1812175  0.0  0.0      0     0 ?        I    09:48   0:00 [kworker/9:0-cgroup_de
+root     1812179  0.0  0.0      0     0 ?        I    09:48   0:00 [kworker/4:1-cgroup_de
+root     1812181  0.0  0.0      0     0 ?        I    09:48   0:00 [kworker/13:0-cgroup_d
+root     1812184  0.0  0.0      0     0 ?        I    09:48   0:00 [kworker/13:1-cgroup_p
+root     1812212  0.0  0.0      0     0 ?        I    09:49   0:00 [kworker/7:0-cgroup_de
+root     1812216  0.0  0.0      0     0 ?        I    09:49   0:00 [kworker/2:0-cgroup_de
+root     1812249  0.0  0.0      0     0 ?        I    09:50   0:00 [kworker/11:1-events]
+root     1812250  0.0  0.0      0     0 ?        I    09:50   0:00 [kworker/11:2-cgroup_p
+root     1812272  0.0  0.0      0     0 ?        I    09:51   0:00 [kworker/8:0-cgroup_pi
+root     1812275  0.0  0.0      0     0 ?        I    09:51   0:00 [kworker/3:0-mm_percpu
+root     1812276  0.0  0.0      0     0 ?        I    09:51   0:00 [kworker/3:3-events]
+root     1812278  0.0  0.0      0     0 ?        I    09:51   0:00 [kworker/6:1-cgroup_de
+root     1812285  0.1  0.0 146056 10084 ?        Ss   09:51   0:00 sshd: aayubi4 [priv]
+root     1812291  1.3  0.1 200860 45720 ?        Ss   09:51   0:05 /usr/libexec/sssd/sssd
+root     1812295  0.0  0.0      0     0 ?        I    09:51   0:00 [kworker/5:2-events]
+aayubi4  1812296  0.0  0.0  89824  9908 ?        Ss   09:51   0:00 /usr/lib/systemd/syste
+aayubi4  1812299  0.0  0.0 320000  6892 ?        S    09:51   0:00 (sd-pam)
+aayubi4  1812311  0.0  0.0 146056  6492 ?        S    09:51   0:00 sshd: aayubi4@pts/3
+root     1812312  0.0  0.0      0     0 ?        I    09:51   0:00 [kworker/15:1-mm_percp
+root     1812317  0.0  0.0      0     0 ?        I    09:51   0:00 [kworker/1:0-events]
+root     1812356  0.2  0.0 146056 10344 ?        Ss   09:53   0:00 sshd: jyan9 [priv]
+jyan9    1812363  0.1  0.0  89828  9908 ?        Ss   09:53   0:00 /usr/lib/systemd/syste
+jyan9    1812366  0.0  0.0 320000  6892 ?        S    09:53   0:00 (sd-pam)
+jyan9    1812378  0.0  0.0 146056  5676 ?        S    09:53   0:00 sshd: jyan9@pts/5
+jyan9    1812382  0.0  0.0  16516  5232 pts/5    Ss+  09:53   0:00 -bash
+root     1812425  0.0  0.0      0     0 ?        I    09:54   0:00 [kworker/10:0-events]
+root     1812429  0.2  0.0 146052 10232 ?        Ss   09:54   0:00 sshd: kganta2 [priv]
+root     1812434  0.0  0.0      0     0 ?        I    09:54   0:00 [kworker/4:2-cgroup_pi
+root     1812435  0.0  0.0      0     0 ?        I    09:54   0:00 [kworker/4:3-cgroup_pi
+kganta2  1812442  0.2  0.0  89832 10008 ?        Ss   09:54   0:00 /usr/lib/systemd/syste
+root     1812444  0.0  0.0      0     0 ?        I    09:54   0:00 [kworker/2:2-mm_percpu
+kganta2  1812446  0.0  0.0 320000  6892 ?        S    09:54   0:00 (sd-pam)
+kganta2  1812458  0.0  0.0 146376  6568 ?        S    09:54   0:00 sshd: kganta2@notty
+kganta2  1812459  0.0  0.0  29368  4768 ?        Ss   09:54   0:00 /usr/libexec/openssh/s
+root     1812506  0.0  0.0      0     0 ?        I    09:54   0:00 [kworker/8:3-events]
+root     1812510  0.0  0.0      0     0 ?        I    09:54   0:00 [kworker/6:2-mm_percpu
+root     1812512  0.3  0.0 146056 10232 ?        Ss   09:54   0:00 sshd: malbayra [priv]
+malbayra 1812520  0.2  0.0  89820  9992 ?        Ss   09:54   0:00 /usr/lib/systemd/syste
+malbayra 1812523  0.0  0.0 320000  6892 ?        S    09:54   0:00 (sd-pam)
+malbayra 1812535  0.0  0.0 146056  5656 ?        R    09:54   0:00 sshd: malbayra@pts/2
+malbayra 1812536  0.0  0.0  23592  5516 pts/2    Ss   09:54   0:00 -bash
+root     1812576  0.0  0.0      0     0 ?        I    09:55   0:00 [kworker/10:2-mm_percp
+aayubi4  1812596  0.0  0.0  16284  4972 pts/3    Ss   09:55   0:00 -bash
+root     1812631  0.0  0.0      0     0 ?        I    09:55   0:00 [kworker/9:1-mm_percpu
+root     1812633  0.0  0.0      0     0 ?        I    09:55   0:00 [kworker/9:2-cgroup_pi
+root     1812641  0.0  0.0      0     0 ?        I    09:55   0:00 [kworker/7:1-mm_percpu
+malbayra 1812649  0.0  0.0  22088  2312 pts/2    R+   09:56   0:00 script program1_malbay
+malbayra 1812651  0.0  0.0  23556  5536 pts/4    Ss   09:56   0:00 bash -i
+aayubi4  1812687  0.0  0.0  17828  2236 pts/3    S+   09:56   0:00 script program1_Ayubi4
+aayubi4  1812689  0.0  0.0  16316  5036 pts/7    Ss+  09:56   0:00 bash -i
+root     1812714  0.0  0.0      0     0 ?        I    09:57   0:00 [kworker/15:0-xfs-sync
+root     1812730  0.0  0.0      0     0 ?        I    09:57   0:00 [kworker/14:0]
+root     1812732  0.0  0.0      0     0 ?        I    09:57   0:00 [kworker/13:2-events]
+root     1812734  0.0  0.0      0     0 ?        I    09:57   0:00 [kworker/15:7-xfs-sync
+malbayra 1812743  0.0  0.0  51896  3804 pts/4    R+   09:57   0:00 ps aux
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ clear
+[3J[H[2J]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ cat program1_malbayra_integer_io.c 
+/*********************************
+*
+* CS222 Programming Assignment #1
+*
+* Mert Albayrak (malbayra@gmu.edu)
+*
+* Program allows for the input of
+* an integer, manipulates it, and
+* then displays a result.
+*
+*********************************/
+
+#include <stdlib.h>
+#include <stdio.h>
+
+#define MULTIPLIER_CONSTANT 2
+#define SUBTRACTION_CONSTANT 100
+
+int main(int argc, char* argv[]){
+
+  int input; // declare variable to store user input in
+
+  if(argc == 2) // check if command line argument was passed
+    input = atoi(argv[1]); // store argument as the input
+  else { // if not passed, gather input from user
+    printf("Enter integer: ");
+    scanf("%d",&input);
+  }
+
+  input = input * MULTIPLIER_CONSTANT - SUBTRACTION_CONSTANT;
+
+  printf("Result %d, formatted as %.2f\n",input,(double)input);
+
+  exit(EXIT_SUCCESS);
+}
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ gcc program1_malbayra_integer_io.c -o program1_malbayra_integer_ioo.c [K[K[K
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ ./program1_malbayra_integer_io 
+Enter integer: 15
+Result -70, formatted as -70.00
+]0;malbayra@mason:~/cs222/prog1[malbayra@mason prog1]$ exit
+
+Script done on 2023-08-29 09:58:33-04:00

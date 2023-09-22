@@ -1,0 +1,2 @@
+1. The time complexity of the equation approach is O(1), constant time. This is because there is only ever 1 line of code to run. The loop approach is O(n), since it will take n iterations of either a loop (or recursive calls in my case).
+2. I'm not sure what the question is asking, it seems to answer itself. Like it says, since even*odd is always even, and dividing an even number by 2 never has a remainder, integer division does not result in a loss of precision.
