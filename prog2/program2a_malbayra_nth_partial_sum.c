@@ -1,6 +1,6 @@
 /*********************************
 *
-* CS222 Programming Assignment #2a
+* CS222 Programming Assignment 2a
 *
 * Mert Albayrak (malbayra@gmu.edu)
 *

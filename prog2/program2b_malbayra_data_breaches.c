@@ -1,3 +1,15 @@
+/*********************************
+*
+* CS222 Programming Assignment 2b
+*
+* Mert Albayrak (malbayra@gmu.edu)
+*
+* Program processes data from a 
+* file and calculates various
+* statistics 
+*
+*********************************/
+
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
@@ -20,16 +32,16 @@ Entry fetch_entries(FILE* file){
   int curr_year = START_YEAR;
   Entry* curr_entry = &first_entry;
 
-  while(fscanf(file,"%d",&(curr_entry->count))==1){
+  while(fscanf(file,"%d",&(curr_entry->count))==1){ // while there are numbers to read in
     curr_entry->year = curr_year;
     curr_entry->month = months[curr_month];
-    curr_entry->next = malloc(sizeof(Entry));
-    curr_entry = curr_entry->next;
+    curr_entry->next = malloc(sizeof(Entry)); // allocate next entry
+    curr_entry = curr_entry->next; // set list index to next entry
     
     curr_month++;
     if(curr_month==12) {
       curr_year++; // increment curr_year every 12 months
-      curr_month = 0;
+      curr_month = 0; // reset month
     }
   }
   
