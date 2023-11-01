@@ -7,7 +7,7 @@
 #include <arpa/inet.h>
 #include <time.h>
 
-extern const char* event_category_l[];
+extern const char* event_category_list[];
 enum event_category {
   unclassified,
   phish,
@@ -16,19 +16,19 @@ enum event_category {
   spyware,
 };
 
-extern const char* event_outcome_l[];
+extern const char* event_outcome_list[];
 enum event_outcome {
   blocked,
   allowed,
 };
 
-extern const char* event_type_l[];
+extern const char* event_type_list[];
 enum event_type {
   firewall,
   // no other types present, this is just for completeness
 };
 
-extern const char* event_action_l[];
+extern const char* event_action_list[];
 enum event_action{
   threat_filter,
   // no other actions present, this is just for completeness

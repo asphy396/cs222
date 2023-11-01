@@ -3,53 +3,90 @@
 #include <arpa/inet.h>
 #include <stdio.h>
 
-// _l == "lookup"
-const char *event_category_l[] = {"unclassified", "phish", "adware",
+#include <string.h>
+#include <stdlib.h>
+
+const char *event_category_list[] = {"unclassified", "phish", "adware",
                                   "command_and_control", "spyware"};
-const char *event_outcome_l[] = {"blocked", "allowed"};
-const char *event_type_l[] = {"firewall"};
-const char *event_action_l[] = {"threat_filter"};
+const char *event_outcome_list[] = {"blocked", "allowed"};
+const char *event_type_list[] = {"firewall"};
+const char *event_action_list[] = {"threat_filter"};
+
+char* find_value(const char* key, const char* line){
+
+  int key_len = 0;
+  while(key[key_len++] != '\0');
+  key_len -= 1; // dont want nullbyte in length for comparison
+
+  const char* idx = line;
+  
+  while(strncmp(idx++,key,key_len) != 0) // seek idx up to where key starts in line
+    if((idx+key_len-line)>=512) abort(); // exit program if end of line is reached without matching
+  
+  idx+= key_len; // add key_len to idx to move up to where value starts
+  
+  while(*(idx++) != '"'); // move idx up to start of value field
+
+  int value_len = 0; // value_len
+  while(*(idx+value_len++) != '"'); // seek value_len to end of value field (the ")
+  value_len -= 1; // subtract the " 
+
+  char* output = malloc(value_len);
+  strncpy(output,idx,value_len);
+
+  return output;
+}
+
+struct tm parse_time(char* time_str){
+
+  struct tm tm;
+  strptime(time_str, "%m:%d:%Y %H:%M:%S",&tm);
+
+  free(time_str);
+  return tm;
+
+}
+
+struct in_addr parse_ip(char* ip_str){
+
+  struct in_addr output;
+  inet_pton(AF_INET,ip_str,&output);
+  
+  free(ip_str);
+  return output;
+}
+
+int parse_enum(char* str,const char** list){
+  int output = 0;
+
+  while(strcmp(str,list[output]) != 0)
+    output++;
+
+  return output;
+}
 
 firewall_log_t parse_log_line(char *line) {
 
-  const char *formatstr =
-      "{\"event.start\": \"%19c\",\"destination.ip\": "
-      "\"%s\",\"destination.host\": \"%s\",\"source.ip\": "
-      "\"%s\",\"source.host\": \"%s\",\"client.bytes\": "
-      "\"%d\",\"server.bytes\": \"%d\",\"http.request.time\": "
-      "\"%d\",\"http.response.time\": \"%d\",\"user.name\": "
-      "\"u%d\",\"event.outcome\": \"%s\",\"event.type\": "
-      "\"%s\",\"event.category\": \"%s\",\"event.action\": \"%s\"}";
-
   firewall_log_t log;
 
-  // intermediary variables required for some fields
-  // where not required, pointers are used for consistency's sake
-  char time_s[20];
-  char dest_ip_s[17];
-  char src_ip_s[17];
+  log.start_time = parse_time(find_value("event.start",line));
 
-  char* src_host = log.src_host;
-  char* dest_host = log.dest_host;
+  log.dest_ip = parse_ip(find_value("destination.ip",line));
+  log.src_ip = parse_ip(find_value("source.ip",line));
   
-  unsigned int* client_bytes = &log.client_bytes;
-  unsigned int* server_bytes = &log.server_bytes;
-  unsigned int* http_request_time = &log.http_request_time;
-  unsigned int* http_response_time = &log.http_response_time;
-  unsigned int* username = &log.username;
-
-  char event_outcome_s[8]; // 'blocked' or 'allowed'
-  char event_type_s[9]; // firewall
-  char event_category_s[20];
-  char event_action_s[14];
-
-  sscanf(line,formatstr,&time_s,&dest_ip_s,&dest_host,src_ip_s,src_host,client_bytes,server_bytes,http_request_time,http_response_time,username,&event_outcome_s,&event_type_s,&event_category_s,&event_action_s);
-  printf("%s",line);
-  printf("%s|%s|%s\n",time_s,dest_ip_s,src_ip_s);
-  printf("%s|%s\n",dest_host,src_host);
-  printf("%s %s %s %s\n",event_outcome_s,event_type_s,event_category_s,event_action_s);
-
-  log.username = 5;
+  strncpy(log.dest_host,find_value("destination.host",line),HOSTNAME_MAX);
+  strncpy(log.src_host,find_value("source.host",line),HOSTNAME_MAX);
+  
+  log.client_bytes = strtoul(find_value("client.bytes",line),NULL,10);
+  log.server_bytes = strtoul(find_value("server.bytes",line),NULL,10);
+  
+  log.http_request_time = strtoul(find_value("http.request.time",line),NULL,10);
+  log.http_response_time = strtoul(find_value("http.response.time",line),NULL,10);
+  log.username = strtoul(find_value("user.name",line)+1,NULL,10);
+  log.event_outcome = parse_enum(find_value("event.outcome",line),event_outcome_list);
+  log.event_type = parse_enum(find_value("event.type",line),event_type_list);
+  log.event_category = parse_enum(find_value("event.category",line),event_category_list);
+  log.event_action = parse_enum(find_value("event.action",line),event_action_list);
 
   return log;
 }
@@ -77,9 +114,9 @@ int print_log(firewall_log_t log) {
   printf(formatstr, start_time_s, dest_ip_s, log.dest_host, src_ip_s,
          log.src_host, log.client_bytes, log.server_bytes,
          log.http_request_time, log.http_response_time, log.username,
-         event_outcome_l[log.event_outcome], event_type_l[log.event_type],
-         event_category_l[log.event_category],
-         event_action_l[log.event_action]);
+         event_outcome_list[log.event_outcome], event_type_list[log.event_type],
+         event_category_list[log.event_category],
+         event_action_list[log.event_action]);
 
   return 0;
 }

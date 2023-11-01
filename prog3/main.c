@@ -3,23 +3,23 @@
 #include <stdio.h>
 
 #define LINE_LEN 512
+#define LOG_NUM 2
 
 int main(int argc, char* argv[]){
   FILE* file = fopen("firewall.log","r");
 
-  firewall_log_t logs[1];
+  firewall_log_t logs[LOG_NUM];
   
   {
     int idx = 0;
     char line[LINE_LEN];
 
-    while(idx < 1 && !feof(file)){
+    while(idx < LOG_NUM && !feof(file)){
       logs[idx++] = parse_log_line(fgets(line,LINE_LEN,file));
     }
   }
-  printf("test\n");
 
-  for(int i = 0; i < 1; i++)
+  for(int i = 0; i < LOG_NUM; i++)
     print_log(logs[i]);
 /*
   firewall_log_t a;
