@@ -7,7 +7,7 @@
 int main(int argc, char* argv[]){
   FILE* file = fopen("firewall.log","r");
 
-  firewall_log_t logs[1];
+  firewall_log_t logs[100];
   
   {
     int idx = 0;
@@ -17,11 +17,9 @@ int main(int argc, char* argv[]){
       logs[idx++] = parse_log_line(fgets(line,LINE_LEN,file));
     }
   }
-  printf("test\n");
-
-  for(int i = 0; i < 1; i++)
-    print_log(logs[i]);
 /*
+  for(int i = 0; i < 100; i++)
+    print_log(logs[i]);
   firewall_log_t a;
   time_t now = time(0);
   

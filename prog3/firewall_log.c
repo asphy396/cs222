@@ -3,16 +3,17 @@
 #include <arpa/inet.h>
 #include <stdio.h>
 
-const char *event_category_s[] = {"unclassified", "phish", "adware",
+// _l == "lookup"
+const char *event_category_l[] = {"unclassified", "phish", "adware",
                                   "command_and_control", "spyware"};
-const char *event_outcome_s[] = {"blocked", "allowed"};
-const char *event_type_s[] = {"firewall"};
-const char *event_action_s[] = {"threat_filter"};
+const char *event_outcome_l[] = {"blocked", "allowed"};
+const char *event_type_l[] = {"firewall"};
+const char *event_action_l[] = {"threat_filter"};
 
 firewall_log_t parse_log_line(char *line) {
 
   const char *formatstr =
-      "{\"event.start\": \"%s\",\"destination.ip\": "
+      "{\"event.start\": \"%19c\",\"destination.ip\": "
       "\"%s\",\"destination.host\": \"%s\",\"source.ip\": "
       "\"%s\",\"source.host\": \"%s\",\"client.bytes\": "
       "\"%d\",\"server.bytes\": \"%d\",\"http.request.time\": "
@@ -22,14 +23,31 @@ firewall_log_t parse_log_line(char *line) {
 
   firewall_log_t log;
 
+  // intermediary variables required for some fields
+  // where not required, pointers are used for consistency's sake
   char time_s[20];
   char dest_ip_s[17];
   char src_ip_s[17];
-  char src_host_s[HOSTNAME_MAX];
-  char dest_host_s[HOSTNAME_MAX];
 
+  char* src_host = log.src_host;
+  char* dest_host = log.dest_host;
+  
+  unsigned int* client_bytes = &log.client_bytes;
+  unsigned int* server_bytes = &log.server_bytes;
+  unsigned int* http_request_time = &log.http_request_time;
+  unsigned int* http_response_time = &log.http_response_time;
+  unsigned int* username = &log.username;
 
-  sscanf(line,formatstr,);
+  char event_outcome_s[8]; // 'blocked' or 'allowed'
+  char event_type_s[9]; // firewall
+  char event_category_s[20];
+  char event_action_s[14];
+
+  sscanf(line,formatstr,&time_s,&dest_ip_s,&dest_host,src_ip_s,src_host,client_bytes,server_bytes,http_request_time,http_response_time,username,&event_outcome_s,&event_type_s,&event_category_s,&event_action_s);
+  printf("%s",line);
+  printf("%s|%s|%s\n",time_s,dest_ip_s,src_ip_s);
+  printf("%s|%s\n",dest_host,src_host);
+  printf("%s %s %s %s\n",event_outcome_s,event_type_s,event_category_s,event_action_s);
 
   log.username = 5;
 
@@ -59,9 +77,9 @@ int print_log(firewall_log_t log) {
   printf(formatstr, start_time_s, dest_ip_s, log.dest_host, src_ip_s,
          log.src_host, log.client_bytes, log.server_bytes,
          log.http_request_time, log.http_response_time, log.username,
-         event_outcome_s[log.event_outcome], event_type_s[log.event_type],
-         event_category_s[log.event_category],
-         event_action_s[log.event_action]);
+         event_outcome_l[log.event_outcome], event_type_l[log.event_type],
+         event_category_l[log.event_category],
+         event_action_l[log.event_action]);
 
   return 0;
 }
