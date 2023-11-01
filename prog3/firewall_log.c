@@ -1,70 +1,10 @@
 #include "firewall_log.h"
 
-#include <arpa/inet.h>
-#include <stdio.h>
-
-#include <string.h>
-#include <stdlib.h>
-
 const char *event_category_list[] = {"unclassified", "phish", "adware",
                                   "command_and_control", "spyware"};
 const char *event_outcome_list[] = {"blocked", "allowed"};
 const char *event_type_list[] = {"firewall"};
 const char *event_action_list[] = {"threat_filter"};
-
-char* find_value(const char* key, const char* line){
-
-  int key_len = 0;
-  while(key[key_len++] != '\0');
-  key_len -= 1; // dont want nullbyte in length for comparison
-
-  const char* idx = line;
-  
-  while(strncmp(idx++,key,key_len) != 0) // seek idx up to where key starts in line
-    if((idx+key_len-line)>=512) abort(); // exit program if end of line is reached without matching
-  
-  idx+= key_len; // add key_len to idx to move up to where value starts
-  
-  while(*(idx++) != '"'); // move idx up to start of value field
-
-  int value_len = 0; // value_len
-  while(*(idx+value_len++) != '"'); // seek value_len to end of value field (the ")
-  value_len -= 1; // subtract the " 
-
-  char* output = malloc(value_len);
-  strncpy(output,idx,value_len);
-
-  return output;
-}
-
-struct tm parse_time(char* time_str){
-
-  struct tm tm;
-  strptime(time_str, "%m:%d:%Y %H:%M:%S",&tm);
-
-  free(time_str);
-  return tm;
-
-}
-
-struct in_addr parse_ip(char* ip_str){
-
-  struct in_addr output;
-  inet_pton(AF_INET,ip_str,&output);
-  
-  free(ip_str);
-  return output;
-}
-
-int parse_enum(char* str,const char** list){
-  int output = 0;
-
-  while(strcmp(str,list[output]) != 0)
-    output++;
-
-  return output;
-}
-
 firewall_log_t parse_log_line(char *line) {
 
   firewall_log_t log;
@@ -94,13 +34,13 @@ firewall_log_t parse_log_line(char *line) {
 int print_log(firewall_log_t log) {
 
   char start_time_s[100];
-  strftime(start_time_s, 100, "%m:%d:%Y %H:%M:%S", &log.start_time);
+  strftime(start_time_s, 100, "%m:%d:%Y %H:%M:%S", &log.start_time); // converts tm struct to string in specified format
 
   char dest_ip_s[INET_ADDRSTRLEN];
-  inet_ntop(AF_INET, &log.dest_ip, dest_ip_s, INET_ADDRSTRLEN);
+  inet_ntop(AF_INET, &log.dest_ip, dest_ip_s, INET_ADDRSTRLEN); // converts in_addr struct to string
 
   char src_ip_s[INET_ADDRSTRLEN];
-  inet_ntop(AF_INET, &log.src_ip, src_ip_s, INET_ADDRSTRLEN);
+  inet_ntop(AF_INET, &log.src_ip, src_ip_s, INET_ADDRSTRLEN); // same as above
 
   const char *formatstr = "event.start = %s\n"
                           "destination.ip = %s, destination.host = %s\n"
@@ -120,3 +60,58 @@ int print_log(firewall_log_t log) {
 
   return 0;
 }
+
+char* find_value(const char* key, const char* line){
+
+  int key_len = 0;
+  while(key[key_len++] != '\0');
+  key_len -= 1; // dont want nullbyte in length for comparison
+
+  const char* idx = line;
+  
+  while(strncmp(idx++,key,key_len) != 0) // seek idx up to where key starts in line
+    if((idx+key_len-line)>=512) abort(); // exit program if end of line is reached without matching
+  
+  idx+= key_len; // add key_len to idx to move up to where value starts
+  
+  while(*(idx++) != '"'); // move idx up to start of value field
+
+  int value_len = 0; // value_len
+  while(*(idx+value_len++) != '"'); // seek value_len to end of value field (the ")
+  value_len -= 1; // subtract the " 
+
+  char* output = malloc(value_len);
+  strncpy(output,idx,value_len);
+
+  return output;
+}
+
+struct tm parse_time(char* time_str){
+
+  struct tm tm;
+  strptime(time_str, "%m:%d:%Y %H:%M:%S",&tm); // needs #define _XOPEN_SOURCE or -D_GNU_SOURCE
+
+  free(time_str);
+  return tm;
+
+}
+
+struct in_addr parse_ip(char* ip_str){
+
+  struct in_addr output;
+  inet_pton(AF_INET,ip_str,&output);
+  
+  free(ip_str);
+  return output;
+}
+
+int parse_enum(char* str,const char** list){
+  int output = 0;
+
+  while(strcmp(str,list[output]) != 0)
+    output++;
+
+  free(str);
+  return output;
+}
+

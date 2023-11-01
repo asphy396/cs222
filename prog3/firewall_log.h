@@ -3,9 +3,11 @@
 
 #define HOSTNAME_MAX 063
 
-#include <sys/types.h>
 #include <arpa/inet.h>
 #include <time.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 extern const char* event_category_list[];
 enum event_category {
@@ -57,7 +59,11 @@ typedef struct firewall_log_t {
 
 } firewall_log_t;
 
-firewall_log_t parse_log_line(char* s);
+firewall_log_t parse_log_line(char* s); // main function to parse lines, returns a log struct
 int print_log(firewall_log_t log);
+char* find_value(const char* key, const char* line); // finds the corresponding value field of a key in a line
+struct tm parse_time(char* time_str); // converts time string to tm struct 
+struct in_addr parse_ip(char* ip_str); // converts ip address string to inet_addr struct
+int parse_enum(char* str, const char** list); // converts event_xyz string to the correct enum value
 
 #endif
